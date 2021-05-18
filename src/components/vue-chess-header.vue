@@ -5,8 +5,8 @@
         <img class="w-100" alt="Vue logo" src="./../assets/logo.png">
       </div>
       <div class="col-6 d-grid gap-2">
-        <button type="button" class="btn btn-light w-100 btn-sm" @click="quickStartGame">Quick Start</button>
-        <button type="button" class="btn btn-light w-100 btn-sm">Advanced Config</button>
+        <button id="quickStartBtn" type="button" class="btn btn-light w-100 btn-sm" @click="quickStartGame">Quick Start</button>
+        <button id="advancedConfigBtn" type="button" class="btn btn-light w-100 btn-sm">Advanced Config</button>
       </div>
       <div class="col-3">
         <img class="w-100" alt="Chess logo" src="./../assets/Centaur.png">
@@ -22,7 +22,8 @@ export default {
   methods: {
     quickStartGame() {
       const board = document.querySelector('chess-board');
-      board.setAttribute("position", "start");
+      document.querySelector('#quickStartBtn').setAttribute('disabled', "");
+      board.start();
       board.setAttribute("draggable-pieces", "");
       const game = new Chess();
 
