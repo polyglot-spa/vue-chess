@@ -1,21 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <vue-chess-header></vue-chess-header>
+  <div id="vue-chess" class="container-fluid mt-1">
+    <chess-board id="chessboard" v-pre>
+    </chess-board>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import "chessboard-element";
+import VueChessHeader from "./components/vue-chess-header";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    VueChessHeader,
+  },
 }
 </script>
 
 <style>
-#app {
+#vue-chess {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
