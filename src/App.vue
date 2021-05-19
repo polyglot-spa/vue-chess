@@ -7,13 +7,14 @@
 </template>
 
 <script>
-import "chessboard-element";
+import * as chessBoard from "chessboard-element";
 import VueChessHeader from "./components/vue-chess-header";
 
 export default {
   name: 'App',
   components: {
     VueChessHeader,
+    chessBoard,
   },
 }
 </script>
