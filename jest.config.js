@@ -6,8 +6,8 @@ module.exports = {
     // tell Jest to handle `*.vue` files
     "vue"
   ],
-
   transform: {
     '^.+\\.vue$': 'vue-jest'
-  }
+  },
+  setupFilesAfterEnv: ["jest-sinon", "./setupTests.js"],
 }

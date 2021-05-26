@@ -1,31 +1,35 @@
 <template>
-  <vue-chess-header></vue-chess-header>
-  <div id="vue-chess" class="container-fluid mt-1">
-    <chess-board id="chessboard" v-pre>
-    </chess-board>
-  </div>
+  <vue-chess-header @quick-start-game="quickStartGame"></vue-chess-header>
+  <chessboard-wrapper id="chessboardWrapper" ref="chessboardWrapper"></chessboard-wrapper>
 </template>
 
 <script>
-import * as chessBoard from "chessboard-element";
+import ChessboardWrapper from "./components/chessboard-wrapper"
 import VueChessHeader from "./components/vue-chess-header";
 
 export default {
   name: 'App',
   components: {
     VueChessHeader,
-    chessBoard,
+    ChessboardWrapper,
+  },
+  methods: {
+    quickStartGame() {
+      this.$refs.chessboardWrapper.quickStartGame()
+    }
+  },
+  mounted() {
   },
 }
 </script>
 
 <style>
-#vue-chess {
+#chessboardWrapper {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 5px;
 }
 </style>
