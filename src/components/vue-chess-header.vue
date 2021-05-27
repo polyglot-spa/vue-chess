@@ -6,7 +6,7 @@
       </div>
       <div class="col-6 d-grid gap-2">
         <button id="quickStartBtn" type="button" class="btn btn-light w-100 btn-sm" @click="quickStartGame" v-bind:disabled="isQuickStartBtnDisabled">Quick Start</button>
-        <button id="advancedConfigBtn" type="button" class="btn btn-light w-100 btn-sm" v-bind:disabled="isAdvancedConfigBtnDisabled">Advanced Config</button>
+        <button id="advancedConfigBtn" type="button" class="btn btn-light w-100 btn-sm" @click="showAdvancedConfigModal" v-bind:disabled="isAdvancedConfigBtnDisabled">Advanced Config</button>
       </div>
       <div class="col-3">
         <img class="w-100" alt="Chess logo" src="./../assets/Centaur.png">
@@ -27,10 +27,17 @@ export default {
   mounted() {
   },
   methods: {
+    disableButtons() {
+      this.isQuickStartBtnDisabled = true;
+      this.isAdvancedConfigBtnDisabled = true;
+    },
     quickStartGame() {
-      this.$data.isQuickStartBtnDisabled = true;
-      this.$data.isAdvancedConfigBtnDisabled = true;
+      this.disableButtons();
       this.$emit('quickStartGame');
+    },
+    showAdvancedConfigModal() {
+      this.disableButtons();
+      this.$emit('showAdvancedConfigModal');
     }
   }
 }

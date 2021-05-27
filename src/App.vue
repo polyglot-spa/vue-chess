@@ -1,24 +1,39 @@
 <template>
-  <vue-chess-header @quick-start-game="quickStartGame"></vue-chess-header>
+  <advanced-config-modal v-if="showConfigModal" @closeAdvancedConfigModal="closeAdvancedConfigModal" @advancedConfigStartGame="advancedConfigStartGame"></advanced-config-modal>
+  <vue-chess-header @quickStartGame="quickStartGame" @showAdvancedConfigModal="showAdvancedConfigModal"></vue-chess-header>
   <chessboard-wrapper id="chessboardWrapper" ref="chessboardWrapper"></chessboard-wrapper>
 </template>
 
 <script>
-import ChessboardWrapper from "./components/chessboard-wrapper"
+import ChessboardWrapper from "./components/chessboard-wrapper";
 import VueChessHeader from "./components/vue-chess-header";
+import AdvancedConfigModal from "./components/advanced-config-modal";
 
 export default {
   name: 'App',
   components: {
     VueChessHeader,
     ChessboardWrapper,
+    AdvancedConfigModal
+  },
+  data() {
+    return {
+      showConfigModal: false
+    }
   },
   methods: {
     quickStartGame() {
-      this.$refs.chessboardWrapper.quickStartGame()
+      this.$refs.chessboardWrapper.quickStartGame();
+    },
+    showAdvancedConfigModal() {
+      this.showConfigModal = true;
+    },
+    closeAdvancedConfigModal() {
+      this.showConfigModal = false;
+    },
+    advancedConfigStartGame(event) {
+      this.$refs.chessboardWrapper.advancedConfigStartGame(event.color, event.fen, event.selfPlay);
     }
-  },
-  mounted() {
   },
 }
 </script>
