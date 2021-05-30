@@ -24,8 +24,6 @@ export default {
       isAdvancedConfigBtnDisabled: false
     }
 },
-  mounted() {
-  },
   methods: {
     disableButtons() {
       this.isQuickStartBtnDisabled = true;
