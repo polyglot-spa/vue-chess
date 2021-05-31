@@ -12,23 +12,23 @@
             <slot name="body">
               <div>
                 <label for="inputFEN" class="form-label">Input FEN</label>
-                <input type="text" class="form-control" id="inputFEN" aria-describedby="fenHelp" v-model="fen">
-                <div id="fenHelp" class="form-text">If the FEN is invalid the field will be ignored.</div>
+                <input type="text" class="form-control" id="inputFEN" v-model="fen"/>
+                <div id="fenHelp" class="form-text" aria-describedby="fenHelp" >If the FEN is invalid the field will be ignored.</div>
               </div>
               <div>
                 Pick Orientation
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="inputRadioWhite" id="inputRadioWhite" value="White" v-model="color" checked>
+                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioWhite" value="White" v-model="color" checked/>
                   <label class="form-check-label" for="inputRadioWhite"> White </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="inputRadioBlack" id="inputRadioBlack" value="Black" v-model="color">
+                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioBlack" value="Black" v-model="color"/>
                   <label class="form-check-label" for="inputRadioBlack"> Black </label>
                 </div>
               </div>
               <div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" v-model="selfPlay" id="inputSelfPlay">
+                  <input class="form-check-input" type="checkbox" v-model="selfPlay" id="inputSelfPlay"/>
                   <label class="form-check-label" for="inputSelfPlay">
                     Check to make computer play itself.
                   </label>
