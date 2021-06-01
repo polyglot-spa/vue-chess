@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import Chess from "chess.js";
 export default {
   name: "advanced-config-modal",
   data() {
@@ -69,15 +68,7 @@ export default {
     },
     advancedConfigStartGame(color, fen, selfPlay) {
       const data = {};
-      const game = new Chess();
-      const  { validate_fen: validateFen } = game;
-
-      if (fen) {
-        let result = validateFen(fen);
-        if (result.valid) {
-          data["fen"] = fen;
-        }
-      }
+      data["fen"] = fen;
       data["color"] = color;
       data["selfPlay"] = selfPlay;
       this.$emit('advancedConfigStartGame', data);

@@ -19,12 +19,12 @@ describe('vue-chess-header.vue Test', () => {
         expect(spyCloseAdvancedConfigModal).toHaveBeenCalled();
     });
 
-    // it('calls advancedConfigStartGame function when advancedConfigStartGameBtn is clicked', async () => {
-    //     const spyAdvancedConfigStartGame = jest.spyOn(AdvancedConfigModal.methods, "advancedConfigStartGame");
-    //     const wrapper = shallowMount(AdvancedConfigModal);
-    //     await wrapper.find('#advancedConfigStartGameBtn').trigger('click');
-    //     expect(spyAdvancedConfigStartGame).toHaveBeenCalled();
-    // });
+    it('calls advancedConfigStartGame function when advancedConfigStartGameBtn is clicked', async () => {
+        const spyAdvancedConfigStartGame = jest.spyOn(AdvancedConfigModal.methods, "advancedConfigStartGame");
+        const wrapper = shallowMount(AdvancedConfigModal);
+        await wrapper.find('#advancedConfigStartGameBtn').trigger('click');
+        expect(spyAdvancedConfigStartGame).toHaveBeenCalled();
+    });
 
     it('emits "closeAdvancedConfigModal" event when closeAdvancedConfigModalBtn is clicked', async () => {
         const wrapper = shallowMount(AdvancedConfigModal);

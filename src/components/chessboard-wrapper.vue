@@ -83,7 +83,10 @@ export default {
       board = this.$el;
       game = new Chess();
 
-      if (fen) {
+      const  { validate_fen: validateFen } = game;
+      let result = validateFen(fen);
+
+      if (fen && result.valid) {
         board.setPosition(fen);
         game.load(fen);
       } else {
