@@ -1,5 +1,5 @@
 <template>
-  <header class="container-fluid" id="vue-secondary-header">
+  <header class="container-fluid" id="vueSecondaryHeader">
     <div class="row p-2">
       <div class="col-3">
         <img class="w-100" alt="Vue logo" src="./../assets/vue-logo.png">
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-#vue-secondary-header {
+#vueSecondaryHeader {
   background-image: url("./../assets/board-background.png");
 }
 </style>

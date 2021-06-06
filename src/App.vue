@@ -1,7 +1,9 @@
 <template>
   <advanced-config-modal v-if="showConfigModal" @closeAdvancedConfigModal="closeAdvancedConfigModal" @advancedConfigStartGame="advancedConfigStartGame"></advanced-config-modal>
   <vue-chess-header @quickStartGame="quickStartGame" @showAdvancedConfigModal="showAdvancedConfigModal"></vue-chess-header>
-  <chessboard-wrapper id="chessboardWrapper" ref="chessboardWrapper"></chessboard-wrapper>
+  <div id="chessBoardBackground">
+    <chessboard-wrapper id="chessboardWrapper" ref="chessboardWrapper"></chessboard-wrapper>
+  </div>
 </template>
 
 <script>
@@ -39,5 +41,10 @@ export default {
 </script>
 
 <style>
-
+#chessBoardBackground {
+  background-image: url("./assets/board-background.png");
+}
+#chessboardWrapper {
+  max-width: 900px;
+  margin: auto;}
 </style>

@@ -7,7 +7,7 @@ describe('vue-chess-header.vue Test', () => {
         expect(wrapper.vm.$options.name).toMatch('advanced-config-modal');
         expect(wrapper.vm.$options.methods).toEqual(expect.objectContaining({closeAdvancedConfigModal: expect.any(Function)}));
         expect(wrapper.vm.$options.methods).toEqual(expect.objectContaining({advancedConfigStartGame: expect.any(Function)}));
-        expect(wrapper.vm.$data.color).toBe("White");
+        expect(wrapper.vm.$data.color).toBe("white");
         expect(wrapper.vm.$data.fen).toBe("");
         expect(wrapper.vm.$data.selfPlay).toBe(false);
     });

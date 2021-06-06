@@ -1,5 +1,5 @@
 <template>
-   <chess-board id="chessboard" orientation="orientation" draggable-pieces="draggablePieces" v-pre></chess-board>
+  <chess-board id="vueChessboard" orientation="orientation" draggable-pieces="draggablePieces" v-pre></chess-board>
 </template>
 
 <script>
