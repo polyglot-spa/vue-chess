@@ -1,4 +1,4 @@
-# vue-cw
+# vue-chess
 
 ## Project setup
 ```
