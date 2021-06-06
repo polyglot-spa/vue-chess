@@ -2,7 +2,7 @@
   <advanced-config-modal v-if="showConfigModal" @closeAdvancedConfigModal="closeAdvancedConfigModal" @advancedConfigStartGame="advancedConfigStartGame"></advanced-config-modal>
   <vue-chess-header @quickStartGame="quickStartGame" @showAdvancedConfigModal="showAdvancedConfigModal"></vue-chess-header>
   <div id="chessBoardBackground">
-    <chessboard-wrapper id="chessboardWrapper" ref="chessboardWrapper"></chessboard-wrapper>
+    <chessboard-wrapper id="vueChessBoard" ref="vueChessBoard"></chessboard-wrapper>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     quickStartGame() {
-      this.$refs.chessboardWrapper.quickStartGame();
+      this.$refs.vueChessBoard.quickStartGame();
     },
     showAdvancedConfigModal() {
       this.showConfigModal = true;
@@ -34,7 +34,7 @@ export default {
       this.showConfigModal = false;
     },
     advancedConfigStartGame(event) {
-      this.$refs.chessboardWrapper.advancedConfigStartGame(event.color, event.fen, event.selfPlay);
+      this.$refs.vueChessBoard.advancedConfigStartGame(event.color, event.fen, event.selfPlay);
     }
   },
 }
@@ -44,7 +44,7 @@ export default {
 #chessBoardBackground {
   background-image: url("./assets/board-background.png");
 }
-#chessboardWrapper {
+#vueChessBoard {
   max-width: 900px;
   margin: auto;}
 </style>
