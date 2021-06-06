@@ -18,11 +18,11 @@
               <div>
                 Pick Orientation
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioWhite" value="White" v-model="color" checked/>
+                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioWhite" value="white" v-model="color" checked/>
                   <label class="form-check-label" for="inputRadioWhite"> White </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioBlack" value="Black" v-model="color"/>
+                  <input class="form-check-input" type="radio" name="inputOrientation" id="inputRadioBlack" value="black" v-model="color"/>
                   <label class="form-check-label" for="inputRadioBlack"> Black </label>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export default {
   name: "advanced-config-modal",
   data() {
     return {
-      color: "White",
+      color: "white",
       fen: "",
       selfPlay: false
     }
@@ -98,7 +98,7 @@ export default {
 
 .modal-container {
   width: 300px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;

@@ -5,8 +5,8 @@
         <img class="w-100" alt="Vue logo" src="./../assets/vue-logo.png">
       </div>
       <div class="col-6 d-grid gap-2">
-        <button id="quickStartBtn" type="button" class="btn btn-light w-100 btn-sm" @click="quickStartGame" v-bind:disabled="isQuickStartBtnDisabled">Quick Start</button>
-        <button id="advancedConfigBtn" type="button" class="btn btn-light w-100 btn-sm" @click="showAdvancedConfigModal" v-bind:disabled="isAdvancedConfigBtnDisabled">Advanced Config</button>
+        <button id="quickStartBtn" type="button" class="btn btn-light w-100 btn-sm" @click="quickStartGame" v-bind:disabled="disabled">Quick Start</button>
+        <button id="advancedConfigBtn" type="button" class="btn btn-light w-100 btn-sm" @click="showAdvancedConfigModal" v-bind:disabled="disabled">Advanced Config</button>
       </div>
       <div class="col-3">
         <img class="w-100" alt="Chess logo" src="./../assets/Centaur.png">
@@ -20,21 +20,16 @@ export default {
   name: "vue-chess-header",
   data() {
     return {
-      isQuickStartBtnDisabled: false,
-      isAdvancedConfigBtnDisabled: false
+      disabled: false
     }
 },
   methods: {
-    disableButtons() {
-      this.isQuickStartBtnDisabled = true;
-      this.isAdvancedConfigBtnDisabled = true;
-    },
     quickStartGame() {
-      this.disableButtons();
+      this.disabled = true;
       this.$emit('quickStartGame');
     },
     showAdvancedConfigModal() {
-      this.disableButtons();
+      this.disabled = true;
       this.$emit('showAdvancedConfigModal');
     }
   }

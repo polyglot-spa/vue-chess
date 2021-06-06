@@ -1,5 +1,5 @@
 <template>
-   <chess-board id="chessboard" class="" v-pre></chess-board>
+   <chess-board id="chessboard" orientation="orientation" draggable-pieces="draggablePieces" v-pre></chess-board>
 </template>
 
 <script>
@@ -11,6 +11,12 @@ export default {
   name: "chess-board-wrapper",
   components: {
     chessBoard
+  },
+  data() {
+    return {
+      orientation: "white",
+      draggablePieces: false
+    }
   },
   methods: {
     makeRandomMove() {
@@ -73,8 +79,7 @@ export default {
       game = new Chess();
 
       board.start();
-      board.setAttribute("draggable-pieces", "");
-
+      this.draggablePieces = true;
       this.addEventListeners();
 
     },
@@ -92,13 +97,11 @@ export default {
       } else {
         board.start();
       }
-      if (color === "Black") {
-        board.setAttribute("orientation", "black");
-      }
+      this.orientation = color;
       if (selfPlay) {
         randomMoveInterval = window.setInterval(this.makeRandomMove, 500);
       } else {
-        board.setAttribute("draggable-pieces", "");
+        this.draggablePieces = true;
         this.addEventListeners();
         if (game.turn() === 'b') {
           window.setTimeout(this.makeRandomMove, 500);
