@@ -1,5 +1,6 @@
 {
   "name": "@polyglot-spa/vue-chess",
+  "description": "The Vue micro-front end for Polyglot-Spa, the custom element chess-board is at its heart.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -65,5 +66,10 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polyglot-spa/vue-chess.git"
+  },
+  "keywords": ["vue", "custom elements", "micro-front end"]
 }
