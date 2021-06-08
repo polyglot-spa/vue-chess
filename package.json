@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "serve:standalone": "vue-cli-service serve --mode standalone"
+    "serve:standalone": "vue-cli-service serve --mode standalone",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "chess.js": "^0.11.0",
@@ -31,6 +32,7 @@
     "babel-jest": "^26.6.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
+    "gh-pages": "^3.2.0",
     "jest-sinon": "^1.0.4",
     "regenerator-runtime": "^0.13.7",
     "typescript": "~3.9.3",
@@ -71,5 +73,9 @@
     "type": "git",
     "url": "https://github.com/polyglot-spa/vue-chess.git"
   },
-  "keywords": ["vue", "custom elements", "micro-front end"]
+  "keywords": [
+    "vue",
+    "custom elements",
+    "micro-front end"
+  ]
 }
