@@ -1,5 +1,9 @@
+<!--The draggable pieces attribute doesn't work with a value of true or false.-->
+<!--It's presence alone makes pieces draggable.-->
+<!--Adding the attribute with javascript is a workaround.-->
+<!--<chess-board :orientation="orientation" :draggable-pieces="draggablePieces"></chess-board>-->
 <template>
-  <chess-board :orientation="orientation" :draggable-pieces=draggablePieces ></chess-board>
+  <chess-board :orientation="orientation"></chess-board>
 </template>
 
 <script>
@@ -74,7 +78,7 @@ export default {
     quickStartGame() {
       board = this.$el;
       game = new Chess();
-
+      board.setAttribute('draggable-pieces', "");
       board.start();
       this.draggablePieces = true;
       this.addEventListeners();
@@ -98,6 +102,7 @@ export default {
       if (selfPlay) {
         randomMoveInterval = window.setInterval(this.makeRandomMove, 500);
       } else {
+        board.setAttribute('draggable-pieces', "");
         this.draggablePieces = true;
         this.addEventListeners();
         if (game.turn() === 'b') {
