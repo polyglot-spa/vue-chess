@@ -1,17 +1,14 @@
 <template>
-  <chess-board orientation="orientation" draggable-pieces="draggablePieces" v-pre></chess-board>
+  <chess-board :orientation="orientation" :draggable-pieces=draggablePieces ></chess-board>
 </template>
 
 <script>
-import * as chessBoard from "chessboard-element";
+import 'chessboard-element';
 import Chess from "chess.js";
 let board, game, randomMoveInterval;
 
 export default {
   name: "chess-board-wrapper",
-  components: {
-    chessBoard
-  },
   data() {
     return {
       orientation: "white",
