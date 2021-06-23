@@ -23,7 +23,7 @@ npm run lint
 
 ### Production deployment location
 ```
-"https://polyglot-spa-vue-chess.s3.us-east-2.amazonaws.com/dist/js/app.0f3c5007.js"
+"https://polyglot-spa-vue-chess.s3.us-east-2.amazonaws.com/js/app.ce90694d.js"
 ```
 
 ### Customize configuration
