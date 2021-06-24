@@ -3,7 +3,7 @@
 <!--Adding the attribute with javascript is a workaround.-->
 <!--<chess-board :orientation="orientation" :draggable-pieces="draggablePieces"></chess-board>-->
 <template>
-  <chess-board :orientation="orientation"></chess-board>
+  <chess-board :orientation="orientation" :draggable-pieces="draggablePieces"></chess-board>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       orientation: "white",
-      draggablePieces: false
+      draggablePieces: undefined
     }
   },
   methods: {
@@ -24,7 +24,7 @@ export default {
       let possibleMoves = game.moves();
 
       // game over
-      if (possibleMoves.length === 0) {
+      if (!game.game_over() && possibleMoves.length === 0) {
         clearInterval(randomMoveInterval);
         return;
       }
@@ -78,7 +78,6 @@ export default {
     quickStartGame() {
       board = this.$el;
       game = new Chess();
-      board.setAttribute('draggable-pieces', "");
       board.start();
       this.draggablePieces = true;
       this.addEventListeners();
@@ -102,7 +101,6 @@ export default {
       if (selfPlay) {
         randomMoveInterval = window.setInterval(this.makeRandomMove, 500);
       } else {
-        board.setAttribute('draggable-pieces', "");
         this.draggablePieces = true;
         this.addEventListeners();
         if (game.turn() === 'b') {
