@@ -37,6 +37,34 @@ export default {
       this.$refs.vueChessBoard.advancedConfigStartGame(event.color, event.fen, event.selfPlay);
     }
   },
+  mounted() {
+    let emitter;
+    let getWindowEmitterMaxTriers = null;
+
+    const attachEmitter = () => {
+      return new Promise((resolve, reject) => {
+        waitForEmitterOnWindow(resolve, reject);
+      })
+    }
+
+    const waitForEmitterOnWindow = (resolve, reject) => {
+      if (!getWindowEmitterMaxTriers) {
+        getWindowEmitterMaxTriers = 10;
+      }
+      if (!window.emitter) {
+        if (getWindowEmitterMaxTriers > 0) {
+          setTimeout(waitForEmitterOnWindow.bind(this, resolve, reject), 300);
+        }
+      } else {
+        resolve();
+      }
+    }
+
+    attachEmitter().then(() => {
+      emitter = window.emitter;
+      emitter.emit('hello', "Vue MFE");
+    });
+  }
 }
 </script>
 
